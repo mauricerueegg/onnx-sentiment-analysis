@@ -1,9 +1,8 @@
-from flask import Flask, request, jsonify
-from flask.helpers import send_file, send_from_directory
+from flask import Flask, request
+from flask.helpers import send_file
 import torch
 import numpy as np
-from simpletransformers.model import TransformerModel
-from transformers import RobertaForSequenceClassification, RobertaTokenizer
+from transformers import RobertaTokenizer
 import onnxruntime
 
 app = Flask(__name__, static_url_path='/', static_folder='web')

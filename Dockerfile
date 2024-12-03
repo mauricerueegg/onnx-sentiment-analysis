@@ -1,4 +1,7 @@
-FROM python:3.12.1
+# docker build -t mosazhaw/roberta-onnx .
+# docker run --name roberta-onnx -p 9000:5000 -d mosazhaw/roberta-onnx
+
+FROM python:3.12.7
 
 # Copy Files
 WORKDIR /usr/src/app

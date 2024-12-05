@@ -2,7 +2,8 @@ function getSentiment(event, text) {
     console.log(text);
 
     if (!text || event.key !== "Enter") {
-        answer.innerHTML = '';
+        positive.innerHTML = '';
+        negative.innerHTML = '';
         return;
     }
 
@@ -17,8 +18,9 @@ function getSentiment(event, text) {
     }).then(
         response => {
             console.log(response)
-            response.text().then(function (text) {
-                answer.innerHTML = text;
+            response.json().then(function (text) {
+                positive.innerHTML = (parseFloat(text.positive)*100).toFixed(1) + "%";
+                negative.innerHTML = (parseFloat(text.negative)*100).toFixed(1) + "%";
             });
 
         }

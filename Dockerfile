@@ -1,15 +1,18 @@
-# docker build -t mosazhaw/roberta-onnx .
-# docker run --name roberta-onnx -p 9000:5000 -d mosazhaw/roberta-onnx
+# docker build -t mosazhaw/onnx-sentiment-analysis .
+# docker run --name onnx-sentiment-analysis -p 9000:5000 -d mosazhaw/onnx-sentiment-analysis
 
 FROM python:3.12.7
 
 # Copy Files
 WORKDIR /usr/src/app
-COPY . .
+COPY app app
+COPY web web
+COPY requirements.txt .
 
 # Install
 RUN pip install -r requirements.txt
 
 # Docker Run Command
 EXPOSE 5000
+WORKDIR /usr/src/app/app
 CMD [ "python", "-m" , "flask", "run", "--host=0.0.0.0"]

@@ -10,7 +10,7 @@ COPY web web
 COPY requirements.txt .
 
 # Install
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt 
 
 # Docker Run Command
 EXPOSE 5000
